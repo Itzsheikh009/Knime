@@ -33,16 +33,32 @@ This workflow compares two supervised algorithms—**Logistic Regression** and *
       [ 📉 ROC Curve Node ]
 
 
+## 📊 Model Performance Comparison Summary
 
-True Positive Rate (Sensitivity)
-1.0 ┼─────────────────────────────────╭───────────────────── Logistic Regression (AUC = 0.846)
-0.8 ┼───────────────────────────╭─────╯..................... Decision Tree (AUC = 0.716)
-0.6 ┼─────────────────╭─────────╯......................... Random Classifier (AUC = 0.500)
-0.4 ┼───────────╭─────╯
-0.2 ┼─────╭─────╯
-0.0 ┼─┼───┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─
-   0.0       0.20      0.40      0.60      0.80      1.00
+The table below outlines the comparative evaluation metrics between the algorithms evaluated on the **Customer Churn** classification task (`Target: Churn = Yes`):
+
+### 🏆 Metric Summary Table
+
+| Model / Classifier | Prediction Column | Classification Strategy | AUC (ROC Curve) | Performance Status |
+| :--- | :--- | :--- | :---: | :---: |
+| **Logistic Regression** | `P (Churn=Yes)` | Parametric / Linear | **0.846** | 🥇 **Optimal Model** |
+| **Decision Tree** | `P (Churn=Yes) (#1)` | Non-Parametric / Tree | **0.716** | 🥈 Baseline Model |
+| **Random Baseline** | `random classifier` | Uniform Random Guess | **0.500** | 🛑 Reference Floor |
+
+---
+
+### 📈 ROC Curve Performance Visual
+
+```text
+  1.00 ┼─────────────────────────────────╭──────────────────── Logistic Regression (AUC = 0.846)
+       │                           ╭─────╯
+  0.80 ┼───────────────────────────╭─────╯.................... Decision Tree (AUC = 0.716)
+       │                     ╭─────╯
+  0.60 ┼─────────────────╭───╯................................ Random Classifier (AUC = 0.500)
+       │           ╭─────╯
+  0.40 ┼─────╭─────╯
+       │╭────╯
+  0.20 ┼╯
+  0.00 ┼─┼───┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─
+      0.0       0.20      0.40      0.60      0.80      1.00
                False Positive Rate (1 - Specificity)
-
-
-<img width="1251" height="315" alt="image" src="https://github.com/user-attachments/assets/52649c37-1756-4e28-ab20-00e21b661498" />
